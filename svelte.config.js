@@ -14,7 +14,7 @@ export default {
       strict: true
     }),
     paths: {
-      base: dev ? '' : '/your-repo-name',
+      base: dev ? '' : '/groovy-sorting',
     },
   }
 };
