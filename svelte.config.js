@@ -13,8 +13,9 @@ export default {
       precompress: false,
       strict: true
     }),
-    paths: {
-      base: dev ? '' : '/groovy-sorting',
-    },
+    // paths: {
+    //   // base: dev ? '' : '/groovy-sorting',
+    //   base: dev ? '' : '/',
+    // },
   }
 };
