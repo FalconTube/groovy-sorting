@@ -62,7 +62,6 @@ def hello_args(self):
 	text = text.strip()
 	#document.getElementById("outmsg").value = text
 	document.getElementById("mycode").innerHTML = text
-	console.log(text)
 
 Element('button').element.addEventListener("click", create_proxy(hello_args))
 </py-script>
