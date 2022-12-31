@@ -18,7 +18,6 @@
 	<div class="column">
 		<div class="row">
 		<button id="button">Sort</button>	
-		<button bind:this={Code.button}>Copy to Clipboard</button>
 		</div>
 	</div>
 	
@@ -54,12 +53,13 @@ def hello_args(self):
 	# Remove all found functions from text and strip trailing whitespace
 	for i in outsort:
 		text = text.replace(i, "")
+	text = text.rstrip({`'<br>'`})
+	text = text.strip()
 	
 
 	# Now add them in sorted order
 	for i in outsort:
 		text += f'\n&#123 i &#125\n'
-	text = text.strip()
 	#document.getElementById("outmsg").value = text
 	document.getElementById("mycode").innerHTML = text
 
