@@ -10,19 +10,29 @@
 	{title}
 </h1>
 
-<div class="outer">
+<div class="outer container">
+	<div class="left-column">
 
-	<div class="column">
-	<label for="infile">Groovy source input:</label>
-	<pre id="infile" contenteditable></pre>
-	
-	<button id="button">Sort</button>	
-	
-	
-	<label for="code">Sorted Groovy file:</label>
-	<Code code=""/>
-	</div>
-</div>		
+		<label for="infile">Groovy source input:</label>
+		<pre id="infile" contenteditable></pre>
+		
+		<div class="column">
+			<div class="row">
+			<button id="button">Sort</button>	
+			</div>
+		</div>
+		
+		
+		<label for="code">Sorted Groovy file:</label>
+		<Code code=""/>
+	</div>		
+	<div class="right-column">
+	<ul class="inlist">
+		<li>test
+		<li>ttesttestest
+	</ul>
+	</div>		
+</div>
 
 <py-script>
 from pyodide.ffi import create_proxy
@@ -79,7 +89,6 @@ Element('button').element.addEventListener("click", create_proxy(hello_args))
 	.outer{
 		height: 80%;
 		margin: 0;
-		display:flex; 
 		border: 1px solid #e2e2e2; 
 		padding: 1em; 
 		margin-bottom: 1rem;
@@ -87,15 +96,39 @@ Element('button').element.addEventListener("click", create_proxy(hello_args))
 		background-color: #f2f2f2;
 
 	}
-
-	.column {
+	.inlist {
 		flex: 1;
+		border: 1px solid #e2e2e2;
+		border-radius: 4px;
+		padding: 1rem 1rem 1rem 2rem;
+		
+	}
+
+	.inlist > li {
+		border: 1px solid #e2e2e2;
+		border-radius: 4px;
+		padding: 10px;
+		margin-top: 10px;
+	}
+
+	.left-column {
 		flex-direction: column;
-		border: 2px solid blue;
+		align-items: center;
+		flex: 3;
+		border: 3px solid blue;
+		
+	}
+	.right-column {
+		flex-direction: column;
+		align-items: center;
+		flex: 1;
+		border: 3px solid blue;
+		
 	}
 	.row {
-		flex: 1;
+		display: flex;
 		flex-direction: row;
+		flex-flow: wrap;
 
 	}
 	.title {
@@ -107,7 +140,7 @@ Element('button').element.addEventListener("click", create_proxy(hello_args))
 		text-shadow: 1px 1px 5px black;
 
 	}
-		button {
+	button {
 		min-width: 200px;
 		margin: 1rem;
 		transition-duration: 0.2s;	
