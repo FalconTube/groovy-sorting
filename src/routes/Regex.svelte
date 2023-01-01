@@ -12,18 +12,16 @@
 
 <div class="outer">
 
+	<div class="column">
 	<label for="infile">Groovy source input:</label>
 	<pre id="infile" contenteditable></pre>
 	
-	<div class="column">
-		<div class="row">
-		<button id="button">Sort</button>	
-		</div>
-	</div>
+	<button id="button">Sort</button>	
 	
 	
 	<label for="code">Sorted Groovy file:</label>
 	<Code code=""/>
+	</div>
 </div>		
 
 <py-script>
@@ -69,10 +67,12 @@ Element('button').element.addEventListener("click", create_proxy(hello_args))
 </html>
 <style>
 	html {
-				font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-				font-size: 14pt;
+		font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+		font-size: 18pt;
+		background-image: linear-gradient(30deg, rgba(2,0,36,1) 0%, rgba(74,188,231,1) 0%, rgba(44,87,103,1) 0%, rgba(66,152,184,1) 100%);
 	}
 	label {
+		/* text-shadow: 1px 1px 3px black; */
 		color: #666;
 		font-weight: 700;
 	}
@@ -80,7 +80,6 @@ Element('button').element.addEventListener("click", create_proxy(hello_args))
 		height: 80%;
 		margin: 0;
 		display:flex; 
-		flex-direction: column;
 		border: 1px solid #e2e2e2; 
 		padding: 1em; 
 		margin-bottom: 1rem;
@@ -90,13 +89,12 @@ Element('button').element.addEventListener("click", create_proxy(hello_args))
 	}
 
 	.column {
-		display:flex; 
+		flex: 1;
 		flex-direction: column;
-		align-items: center;
-		justify-content: space-around;
-		
+		border: 2px solid blue;
 	}
 	.row {
+		flex: 1;
 		flex-direction: row;
 
 	}
@@ -104,6 +102,10 @@ Element('button').element.addEventListener("click", create_proxy(hello_args))
 		margin: 0;
 		max-width: 100%;
 		text-align: center;
+		font-size: 40pt;
+		color: #f2f2f2;
+		text-shadow: 1px 1px 5px black;
+
 	}
 		button {
 		min-width: 200px;
@@ -111,14 +113,15 @@ Element('button').element.addEventListener("click", create_proxy(hello_args))
 		transition-duration: 0.2s;	
 		background-color: white; 
 		color: black; 
-		border: 2px solid #66AFE9;
+		border: 2px solid rgba(66,152,184,1);
 		border-radius: 4px;
 			cursor: pointer;
 
 	}
 	button:hover {
-		background-color: #66AFE9; 
+		background-color: rgba(66,152,184,1); 
 		color: white; 
+		text-shadow: 1px 1px 2px black;
 	}
 		
 
