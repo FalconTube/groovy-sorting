@@ -14,7 +14,7 @@
         border: 1px solid #666;
         border-radius: 4px;
         background-color: #332f2f;
-        color: white;
+        color: #98c6ec;
         list-style-type: none;
         padding-left: 10px;
         padding-right: 10px;

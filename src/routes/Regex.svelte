@@ -109,28 +109,29 @@ Element('button').element.addEventListener("click", create_proxy(hello_args))
 	html {
 		font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 		font-size: 18pt;
-		background: linear-gradient(30deg, rgba(2,0,36,1) 0%, rgba(74,188,231,1) 0%, rgba(44,87,103,1) 0%, rgba(66,152,184,1) 100%);
-		background-attachment: fixed;
+		background:#0d1117 ;
+		/* background: linear-gradient(30deg, rgba(2,0,36,1) 0%, rgba(74,188,231,1) 0%, rgba(44,87,103,1) 0%, rgba(66,152,184,1) 100%);
+		background-attachment: fixed; */
 	}
 	label {
 		/* text-shadow: 1px 1px 3px black; */
-		color: #666;
+		color:#c9d1d9;
 		font-weight: 700;
 	}
 	.outer{
 		height: 80%;
 		margin: 0;
-		border: 1px solid #e2e2e2; 
+		border: 3px solid #e2e2e2; 
 		padding: 1em; 
 		margin-bottom: 1rem;
 		border-radius: 10px;
-		background-color: #f2f2f2;
+		/* background-color:#0d1117 ; */
+		background: linear-gradient(30deg, rgba(2,0,36,1) 0%, rgba(74,188,231,1) 0%, rgba(44,87,103,1) 0%, rgba(66,152,184,1) 100%);
+		background-attachment: fixed;
 
 	}
 	.inlist {
 		flex: 1;
-		border: 1px solid #e2e2e2;
-		border-radius: 10px;
 		padding: 0;
 		margin-top: 10px;
 		/* padding: 1rem 1rem 1rem 2rem; */
@@ -165,32 +166,36 @@ Element('button').element.addEventListener("click", create_proxy(hello_args))
 		text-align: center;
 		font-size: 40pt;
 		color: #f2f2f2;
-		text-shadow: 1px 1px 5px black;
+		text-shadow: 1px 1px 2px #f2f2f2;
 
 	}
 	button {
 		min-width: 200px;
 		margin: 1rem;
 		transition-duration: 0.2s;	
-		background-color: white; 
+		background-color: #c9d1d9; 
+		font-weight: 700;
 		color: black; 
 		border: 2px solid rgba(66,152,184,1);
 		border-radius: 10px;
-			cursor: pointer;
+		cursor: pointer;
+		text-shadow: 1px 1px 2px #c9d1d9;
 
 	}
 	button:hover {
 		background-color: #4298b8; 
-		color: white; 
+		color: #c9d1d9; 
 		text-shadow: 1px 1px 2px black;
 	}
 	p {
 		margin: 0;
 	}
 	.middle {
-		border: 2px solid #4298b8;
+		border: 2px solid #c9d1d9;
+		color: #c9d1d9;
 		border-radius: 10px;
 		padding: 2px;
+		font-weight: 500;
 	}
 	
 		
