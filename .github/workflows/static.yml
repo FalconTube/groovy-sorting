@@ -21,11 +21,19 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  build:
+  # Single deploy job since we're just deploying
+  build-deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
+    needs: [build]
+    steps:
+      # Checkout
+      - name: Checkout
+        uses: actions/checkout@v3
 
-    steps: 
-      - uses: actions/checkout@v2
+      # Setup node and build
       - name: Use Node.js
         uses: actions/setup-node@v2
         with:
@@ -35,16 +43,7 @@ jobs:
       - name: Build
         run: npm run build
 
-  # Single deploy job since we're just deploying
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    needs: [build]
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
+      # Upload to GH pages
       - name: Setup Pages
         uses: actions/configure-pages@v2
       - name: Upload artifact
