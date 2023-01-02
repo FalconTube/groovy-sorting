@@ -42,7 +42,11 @@
 		<div class="column">
 			<div class="row">
 			<button id="button">Sort</button>	
-			<button on:click={listFunc}>Find</button>	
+			<div class="middle">
+			<p>Sort functions by name, alphabetically ascending.</p>
+			<code>Regex: '{regex}'</code><br>
+			<code>{`Example: void myFunc(String instring) {...}`}</code>
+			</div>
 			</div>
 		</div>
 		
@@ -119,14 +123,14 @@ Element('button').element.addEventListener("click", create_proxy(hello_args))
 		border: 1px solid #e2e2e2; 
 		padding: 1em; 
 		margin-bottom: 1rem;
-		border-radius: 4px;
+		border-radius: 10px;
 		background-color: #f2f2f2;
 
 	}
 	.inlist {
 		flex: 1;
 		border: 1px solid #e2e2e2;
-		border-radius: 4px;
+		border-radius: 10px;
 		padding: 0;
 		margin-top: 10px;
 		/* padding: 1rem 1rem 1rem 2rem; */
@@ -145,6 +149,7 @@ Element('button').element.addEventListener("click", create_proxy(hello_args))
 		flex-direction: column;
 		align-items: center;
 		flex: 1;
+		overflow-x: hidden;
 		/* border: 3px solid #4298b8; */
 		
 	}
@@ -170,7 +175,7 @@ Element('button').element.addEventListener("click", create_proxy(hello_args))
 		background-color: white; 
 		color: black; 
 		border: 2px solid rgba(66,152,184,1);
-		border-radius: 4px;
+		border-radius: 10px;
 			cursor: pointer;
 
 	}
@@ -178,6 +183,14 @@ Element('button').element.addEventListener("click", create_proxy(hello_args))
 		background-color: #4298b8; 
 		color: white; 
 		text-shadow: 1px 1px 2px black;
+	}
+	p {
+		margin: 0;
+	}
+	.middle {
+		border: 2px solid #4298b8;
+		border-radius: 10px;
+		padding: 2px;
 	}
 	
 		
