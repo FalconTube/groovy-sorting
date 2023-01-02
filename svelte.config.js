@@ -1,4 +1,4 @@
-const dev = process.argv.includes('dev');
+// const dev = process.argv.includes('dev');
 
 import adapter from '@sveltejs/adapter-static';
 
