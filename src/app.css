@@ -9,7 +9,7 @@ font-size: 14pt;
 }
 
 body {
-    max-width: 800px;
+    max-width: 1400px;
     margin-left: auto;
     margin-right: auto;
 }
@@ -20,28 +20,33 @@ body {
     align-items: stretch;
 }
 
-pre {
-    flex: 4;
-    flex-grow: 4;
-    border-radius: 4px;
-    border-left: 13px solid #ccc;
-    min-height: 100px;
-    min-width: 300px;
-    background-color: #332f2f;
-    color: white;
-    font-family: monospace;
-    font-size: 10pt;
-	margin: 10px;
-    overflow-x: auto;
-    overflow-y: auto;
-    align-self: stretch;
+
+.codeblock {
+flex: 4;
+flex-grow: 4;
+border-radius: 4px;
+border-left: 13px solid #ccc;
+min-height: 100px;
+min-width: 300px;
+background-color: #332f2f;
+color: white;
+font-family: monospace;
+font-size: 10pt;
+margin: 10px;
+overflow-x: auto;
+overflow-y: auto;
+align-self: stretch;
 }
 
-pre:focus {
+.codeblock:focus {
     border-top-color:#4298b8 ;
     box-shadow: 0px 0px 2px 2px #4298b8 ;
     outline: none;
     transition-property: border-color box-shadow;
     transition-duration: 0.15s;
     transition-timing-function: ease-out-in;
+}
+
+textarea {
+    resize: none;
 }

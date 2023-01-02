@@ -1,7 +1,28 @@
 <script>
-	import Code from './Code.svelte';
+    import { onMount } from 'svelte';
+	import Item from './Item.svelte';
+	// import Code from './Code.svelte';
+    import { writable } from 'svelte/store';
+
 	let title = 'Groovy sorting';
+	const regex = /[a-zA-Z]+\s[A-Za-z0-9]+\([^)]*\)\s+\{/g;
 	let groovystring = '';
+	let mylist = writable({});
+	$mylist = [];
+	
+	// console.log(matches);
+
+	function listFunc() {
+		// Unsorted
+		$mylist = [];
+		const matches = [...groovystring.matchAll(regex)];
+
+		for (let i = 0; i < matches.length; i++) {
+			var l = $mylist.length;
+			$mylist[l] = {name: matches[i]};
+		}
+	};
+
 
 </script>
 
@@ -14,22 +35,28 @@
 	<div class="left-column">
 
 		<label for="infile">Groovy source input:</label>
-		<pre id="infile" contenteditable></pre>
+		<!-- <pre id="infile" class="codeblock" contenteditable bind:innerHTML={groovystring}></pre> -->
+		<textarea class="codeblock" bind:value={groovystring} on:input={listFunc}></textarea>
+		<div id="infile" style="display: none;">{groovystring}</div>
 		
 		<div class="column">
 			<div class="row">
 			<button id="button">Sort</button>	
+			<button on:click={listFunc}>Find</button>	
 			</div>
 		</div>
 		
 		
 		<label for="code">Sorted Groovy file:</label>
-		<Code code=""/>
+		<textarea id="mycode" class="codeblock"></textarea>
+		<!-- <Code code=""/> -->
 	</div>		
 	<div class="right-column">
-	<ul class="inlist">
-		<li>test
-		<li>ttesttestest
+	<label for="foundlist">Found functions</label>
+	<ul class="inlist" id="foundlist">
+		{#each $mylist as item, index}
+		<svelte:component this={Item} objAttributes={item} delay={index}/>
+		{/each}
 	</ul>
 	</div>		
 </div>
@@ -37,7 +64,7 @@
 <py-script>
 from pyodide.ffi import create_proxy
 import regex
-from js import document
+from js import document, console
 
 def sortkey():
     """Return the basename of function."""
@@ -63,13 +90,12 @@ def hello_args(self):
 		text = text.replace(i, "")
 	text = text.rstrip({`'<br>'`})
 	text = text.strip()
-	
+
 
 	# Now add them in sorted order
 	for i in outsort:
 		text += f'\n&#123 i &#125\n'
-	#document.getElementById("outmsg").value = text
-	document.getElementById("mycode").innerHTML = text
+	document.getElementById("mycode").value = text
 
 Element('button').element.addEventListener("click", create_proxy(hello_args))
 </py-script>
@@ -101,15 +127,10 @@ Element('button').element.addEventListener("click", create_proxy(hello_args))
 		flex: 1;
 		border: 1px solid #e2e2e2;
 		border-radius: 4px;
-		padding: 1rem 1rem 1rem 2rem;
-		
-	}
-
-	.inlist > li {
-		border: 1px solid #e2e2e2;
-		border-radius: 4px;
-		padding: 10px;
+		padding: 0;
 		margin-top: 10px;
+		/* padding: 1rem 1rem 1rem 2rem; */
+		
 	}
 
 	.left-column {
@@ -117,14 +138,14 @@ Element('button').element.addEventListener("click", create_proxy(hello_args))
 		flex-direction: column;
 		align-items: stretch;
 		flex: 3;
-		border: 3px solid #4298b8;
+		/* border: 3px solid #4298b8; */
 		
 	}
 	.right-column {
 		flex-direction: column;
 		align-items: center;
 		flex: 1;
-		border: 3px solid #4298b8;
+		/* border: 3px solid #4298b8; */
 		
 	}
 	.row {
@@ -158,6 +179,7 @@ Element('button').element.addEventListener("click", create_proxy(hello_args))
 		color: white; 
 		text-shadow: 1px 1px 2px black;
 	}
+	
 		
 
 </style>

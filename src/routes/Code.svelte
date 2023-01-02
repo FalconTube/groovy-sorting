@@ -17,4 +17,3 @@
     codeB = code;
 </script>
 
-<pre id="mycode" contenteditable>{@html code}</pre>
