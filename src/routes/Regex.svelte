@@ -79,7 +79,8 @@ Element('button').element.addEventListener("click", create_proxy(hello_args))
 	html {
 		font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 		font-size: 18pt;
-		background-image: linear-gradient(30deg, rgba(2,0,36,1) 0%, rgba(74,188,231,1) 0%, rgba(44,87,103,1) 0%, rgba(66,152,184,1) 100%);
+		background: linear-gradient(30deg, rgba(2,0,36,1) 0%, rgba(74,188,231,1) 0%, rgba(44,87,103,1) 0%, rgba(66,152,184,1) 100%);
+		background-attachment: fixed;
 	}
 	label {
 		/* text-shadow: 1px 1px 3px black; */
@@ -112,17 +113,18 @@ Element('button').element.addEventListener("click", create_proxy(hello_args))
 	}
 
 	.left-column {
+		display: flex;
 		flex-direction: column;
-		align-items: center;
+		align-items: stretch;
 		flex: 3;
-		border: 3px solid blue;
+		border: 3px solid #4298b8;
 		
 	}
 	.right-column {
 		flex-direction: column;
 		align-items: center;
 		flex: 1;
-		border: 3px solid blue;
+		border: 3px solid #4298b8;
 		
 	}
 	.row {
@@ -152,7 +154,7 @@ Element('button').element.addEventListener("click", create_proxy(hello_args))
 
 	}
 	button:hover {
-		background-color: rgba(66,152,184,1); 
+		background-color: #4298b8; 
 		color: white; 
 		text-shadow: 1px 1px 2px black;
 	}

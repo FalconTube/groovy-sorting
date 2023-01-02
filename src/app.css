@@ -16,7 +16,8 @@ body {
 
 .container {
 	display: flex;
-gap: 5px;
+    gap: 5px;
+    align-items: stretch;
 }
 
 pre {
@@ -33,11 +34,12 @@ pre {
 	margin: 10px;
     overflow-x: auto;
     overflow-y: auto;
+    align-self: stretch;
 }
 
 pre:focus {
-    border-top-color: #66afe9;
-    box-shadow: 0px 0px 2px 2px #66afe9;
+    border-top-color:#4298b8 ;
+    box-shadow: 0px 0px 2px 2px #4298b8 ;
     outline: none;
     transition-property: border-color box-shadow;
     transition-duration: 0.15s;
