@@ -10,21 +10,29 @@
 	{title}
 </h1>
 
-<div class="outer">
+<div class="outer container">
+	<div class="left-column">
 
-	<label for="infile">Groovy source input:</label>
-	<pre id="infile" contenteditable></pre>
-	
-	<div class="column">
-		<div class="row">
-		<button id="button">Sort</button>	
+		<label for="infile">Groovy source input:</label>
+		<pre id="infile" contenteditable></pre>
+		
+		<div class="column">
+			<div class="row">
+			<button id="button">Sort</button>	
+			</div>
 		</div>
-	</div>
-	
-	
-	<label for="code">Sorted Groovy file:</label>
-	<Code code=""/>
-</div>		
+		
+		
+		<label for="code">Sorted Groovy file:</label>
+		<Code code=""/>
+	</div>		
+	<div class="right-column">
+	<ul class="inlist">
+		<li>test
+		<li>ttesttestest
+	</ul>
+	</div>		
+</div>
 
 <py-script>
 from pyodide.ffi import create_proxy
@@ -69,18 +77,19 @@ Element('button').element.addEventListener("click", create_proxy(hello_args))
 </html>
 <style>
 	html {
-				font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-				font-size: 14pt;
+		font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+		font-size: 18pt;
+		background: linear-gradient(30deg, rgba(2,0,36,1) 0%, rgba(74,188,231,1) 0%, rgba(44,87,103,1) 0%, rgba(66,152,184,1) 100%);
+		background-attachment: fixed;
 	}
 	label {
+		/* text-shadow: 1px 1px 3px black; */
 		color: #666;
 		font-weight: 700;
 	}
 	.outer{
 		height: 80%;
 		margin: 0;
-		display:flex; 
-		flex-direction: column;
 		border: 1px solid #e2e2e2; 
 		padding: 1em; 
 		margin-bottom: 1rem;
@@ -88,37 +97,66 @@ Element('button').element.addEventListener("click", create_proxy(hello_args))
 		background-color: #f2f2f2;
 
 	}
+	.inlist {
+		flex: 1;
+		border: 1px solid #e2e2e2;
+		border-radius: 4px;
+		padding: 1rem 1rem 1rem 2rem;
+		
+	}
 
-	.column {
-		display:flex; 
+	.inlist > li {
+		border: 1px solid #e2e2e2;
+		border-radius: 4px;
+		padding: 10px;
+		margin-top: 10px;
+	}
+
+	.left-column {
+		display: flex;
+		flex-direction: column;
+		align-items: stretch;
+		flex: 3;
+		border: 3px solid #4298b8;
+		
+	}
+	.right-column {
 		flex-direction: column;
 		align-items: center;
-		justify-content: space-around;
+		flex: 1;
+		border: 3px solid #4298b8;
 		
 	}
 	.row {
+		display: flex;
 		flex-direction: row;
+		flex-flow: wrap;
 
 	}
 	.title {
 		margin: 0;
 		max-width: 100%;
 		text-align: center;
+		font-size: 40pt;
+		color: #f2f2f2;
+		text-shadow: 1px 1px 5px black;
+
 	}
-		button {
+	button {
 		min-width: 200px;
 		margin: 1rem;
 		transition-duration: 0.2s;	
 		background-color: white; 
 		color: black; 
-		border: 2px solid #66AFE9;
+		border: 2px solid rgba(66,152,184,1);
 		border-radius: 4px;
 			cursor: pointer;
 
 	}
 	button:hover {
-		background-color: #66AFE9; 
+		background-color: #4298b8; 
 		color: white; 
+		text-shadow: 1px 1px 2px black;
 	}
 		
 
