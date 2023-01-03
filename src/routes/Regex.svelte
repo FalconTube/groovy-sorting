@@ -97,6 +97,7 @@ def hello_args(self):
 
 
 	# Now add them in sorted order
+	text += '\n'
 	for i in outsort:
 		text += f'\n&#123 i &#125\n'
 	document.getElementById("mycode").value = text

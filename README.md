@@ -9,11 +9,11 @@ A web interface of this app is provided via **GitHub Pages** at: [Groovy-sorting
 Simply insert any groovy script into the upper code block. The app will find all functions automatically.
 ![Unsorted](static/upper.png)
 
-Hit `Sort` and the app will sort do the following:
+Hit `Sort` and the app will do the following:
 
-1. Remove all found functions
-2. Strip remaining whitespace from bottom of file
-3. Append all functions to end of file in order
+1. Remove all found functions.
+2. Strip remaining whitespace from bottom of file.
+3. Append all functions to end of file in alphabetically sorted order.
 
 ![Sorted](static/lower.png)
 
